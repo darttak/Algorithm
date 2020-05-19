@@ -1,7 +1,7 @@
 function attempt(available, allowed, preferred) {
     // Пересечение Available и Allowed
-     let intersection = available.filter(aItem => {
-         return allowed.indexOf(aItem) > -1;
+     let intersection = available.filter(availableItem => {
+         return allowed.indexOf(availableItem) > -1;
      })
     
      //Если пересечения нет, ответ 0
@@ -79,11 +79,12 @@ function attempt(available, allowed, preferred) {
  
  // test 4
  
- available = [720];
- allowed = [240, 360, 720, 1080];
- preferred = [360];
- 
- console.log('test4: ', attempt(available, allowed, preferred), ' -> должно быть [720]');
+ available = [1,2,3,4,5,6];
+ allowed = [4,5,100,3];
+ preferred = [2,3,4,5,6];
+ const uniqueAttempt = new Set(attempt(available, allowed, preferred));
+ const backToArray = [...uniqueAttempt];
+ console.log('test4: ', backToArray, ' -> должно быть [720]');
  
  
  // test 5
