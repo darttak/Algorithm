@@ -47,7 +47,9 @@ function attempt(available, allowed, preferred) {
          }
      });
  
-     return result;
+    let uniqueAttempt = new Set(result);
+    const  uniqueAttemptObject = [...uniqueAttempt];
+    return uniqueAttempt;
  }
  
  // test1
@@ -77,14 +79,12 @@ function attempt(available, allowed, preferred) {
  console.log('test3: ', attempt(available, allowed, preferred), ' -> должно быть [240, 720]');
  
  
- // test 4 + проверка на дубликаты
+ // test 4
  
  available = [1,2,3,4,5,6];
  allowed = [4,5,100,3];
  preferred = [2,3,4,5,6];
- const uniqueAttempt = new Set(attempt(available, allowed, preferred));
- const backToArray = [...uniqueAttempt];
- console.log('test4: ', backToArray, ' -> должно быть [3, 4, 5]');
+ console.log('test4: ', attempt(available, allowed, preferred), ' -> должно быть [3,4,5]');
  
  
  // test 5
