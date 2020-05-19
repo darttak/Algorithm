@@ -46,7 +46,7 @@ function attempt(available, allowed, preferred) {
              return;
          }
      });
- 
+// проверка на дубликаты
     let uniqueAttempt = new Set(result);
     const  uniqueAttemptObject = [...uniqueAttempt];
     return uniqueAttempt;
